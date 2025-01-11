@@ -1,4 +1,4 @@
-def solution(bin1, bin2):
+"""def solution(bin1, bin2):
     answer = ''
     o=0
     l=[]
@@ -15,4 +15,9 @@ def solution(bin1, bin2):
         
     l.reverse()
     answer=''.join(l)
+    return answer
+    """
+
+def solution(bin1, bin2):
+    answer=bin(int(bin1, 2)+int(bin2, 2))[2:]
     return answer
