@@ -1,12 +1,10 @@
 def solution(board):
     answer = 0
-    l=0
     a=len(board)
     b=len(board[0])
     for i in range(a):
         for j in range(b):
             if board[i][j]==1:
-                l+=1
                 for dx in [-1,0,1]:
                     for dy in [-1,0,1]:
                         di=i+dx
