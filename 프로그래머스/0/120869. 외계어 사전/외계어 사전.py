@@ -3,3 +3,5 @@ def solution(spell, dic):
         if sorted(spell)==sorted(i):
             return 1
     return 2
+
+
