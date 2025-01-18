@@ -1,4 +1,4 @@
-def solution(score):
+"""def solution(score):
     answer = []
     avg=[sum(s)/2 for s in score]
     sort_avg=sorted(avg, reverse=True)
@@ -14,4 +14,9 @@ def solution(score):
     for a in avg:
         answer.append(rank_dic[a])
     
-    return answer
+    return answer"""
+def solution(score):
+    answer=[]
+    l=sorted([sum(s) for s in score], reverse=True)
+    return [l.index(sum(i))+1 for i in score]
+#파이썬의 index함수는 중복되는 값이 나오면 첫번째 값을 리턴한다.
