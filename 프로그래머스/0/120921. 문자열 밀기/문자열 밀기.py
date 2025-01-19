@@ -6,10 +6,9 @@ def solution(A, B):
     c=0
     if A==B:
         return 0
-    for i in range(len(A)):
+    for i in range(1, len(A)):
         la.rotate(1)
-        c+=1
         if list(la)==lb:
-            return c
+            return i
           
     return -1
