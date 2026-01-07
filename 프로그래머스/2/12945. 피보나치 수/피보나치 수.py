@@ -1,6 +1,7 @@
 def solution(n):
     if n<=1:
         return n
+    
     p0=0
     p1=1
     
