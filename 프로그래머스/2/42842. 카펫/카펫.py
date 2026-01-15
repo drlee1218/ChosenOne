@@ -1,7 +1,7 @@
 def solution(brown, yellow):
     answer = []
     s=yellow+brown
-    for i in range(1, s//2+1):
+    for i in range(1, s**2+1):
         if s%i==0:
             j=s//i
             if i>=j:
