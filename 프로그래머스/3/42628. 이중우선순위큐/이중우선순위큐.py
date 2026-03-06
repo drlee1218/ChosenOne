@@ -33,7 +33,7 @@ def solution(operations):
                     visited[min_heap[0][1]] = False
                     heapq.heappop(min_heap)
 
-    # 마지막 정리
+    # 다른 힙 값도 정리
     while min_heap and not visited[min_heap[0][1]]:
         heapq.heappop(min_heap)
 
