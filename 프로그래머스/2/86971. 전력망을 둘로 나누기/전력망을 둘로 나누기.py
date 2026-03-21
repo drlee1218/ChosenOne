@@ -1,40 +1,35 @@
 from collections import deque
 
+def bfs(start, graph, n):
+    visited = [False] * (n + 1)
+    q = deque([start])
+    count = 0
+    while q:
+        x = q.popleft()
+        if visited[x]:
+            continue
+        else :
+            visited[x] = True
+            count += 1
+        for i in graph[x]:
+            q.append(i)
+    return count
+
+
+
 def solution(n, wires):
-    
-    def bfs(start, graph, visited):
-        q = deque([start])
-        visited[start] = True
-        count = 1
-        
-        while q:
-            now = q.popleft()
-            for next_node in graph[now]:
-                if not visited[next_node]:
-                    visited[next_node] = True
-                    q.append(next_node)
-                    count += 1
-        return count
-    
-    answer = n
-    
-    for i in range(len(wires)):
+    answer = int(1e9)
+    for i in range(n-1):
         graph = [[] for _ in range(n+1)]
-        
-        # i번째 간선 제거하고 그래프 구성
-        for j in range(len(wires)):
-            if i == j:
+        for j in range(n-1):
+            if i == j :
                 continue
             v1, v2 = wires[j]
             graph[v1].append(v2)
             graph[v2].append(v1)
-        
-        visited = [False] * (n+1)
-        
-        # 아무 노드에서 시작해서 한 쪽 크기 구하기
-        size = bfs(1, graph, visited)
-        
-        diff = abs(size - (n - size))
-        answer = min(answer, diff)
-    
+
+        a = bfs(wires[i][0] , graph, n)
+        b = bfs(wires[i][1] , graph, n)
+        answer = min(answer, abs(a - b))
+
     return answer
